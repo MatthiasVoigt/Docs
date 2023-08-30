@@ -1,14 +1,22 @@
 # A100 CUDA Setup Guide
 
+
+Summary:
+
+This text contains instructions for the following tasks: 
+
+* How do I setup an A100 with Ubuntu? 
+* Build a basic "Hello World" application.
+* Compute the dot prodcut between two vectors. 
+* Compute the dot product between a matrix and a vector.
+* Measure execution time. 
+
+
 ## PROMPT 1
 
 How do I run algorithms on an A100 using Ubuntu? Include example code for a hello world application. 
 
-## PROMPT 1
-
-How do I run algorithms on an A100 using Ubuntu? Include example code for a hello world application. 
-
-## RESPONSE 2
+## RESPONSE 1
 
 Running algorithms on an NVIDIA A100 GPU using Ubuntu involves several steps, including installing the necessary software and drivers, setting up your environment, and finally executing the code. Here's a step-by-step guide:
 
