@@ -96,4 +96,14 @@ When it comes to yachting destinations, the "best" places can vary depending on 
 
 Each destination offers its own set of unique experiences, from exploring marine biodiversity to immersing oneself in vibrant cultural events. Your choice will depend on your interests—whether you're more into water sports, relaxation, or cultural exploration.
 
+Near the Moon
+
+![](stylish_space_yacht_on_the_moon._5106ea28-5e87-4f13-94a7-2bed160b02e6.png)
+
+In Space
+
+![](stylish_space_yacht_dfd5f2cb-df22-4c43-a15d-55eb4e80b2ba.png)
+
+
+
 Source: GPT4 and Midjourney  

@@ -52,23 +52,105 @@ yes subtracting the mean and dividing by the standard deviation is correct. and 
 
 ## RESPONSE 4
 
-Here are the results:
+```python
+import numpy as np
+import matplotlib.pyplot as plt
 
-The values of <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N are: <math><semantics><mrow><mo>\[</mo><mn>10</mn><mo>,</mo><mn>50</mn><mo>,</mo><mn>100</mn><mo>,</mo><mn>500</mn><mo>,</mo><mn>1000</mn><mo>,</mo><mn>5000</mn><mo>\]</mo></mrow><annotation>\[10, 50, 100, 500, 1000, 5000\]</annotation></semantics></math>\[10,50,100,500,1000,5000\]
+# Define function to standardize a vector or matrix
+def standardize(X):
+    return (X - np.mean(X, axis=0)) / np.std(X, axis=0)
 
-The corresponding <math><semantics><mrow><mi>σ</mi></mrow><annotation>\\sigma</annotation></semantics></math>σ values are approximately: <math><semantics><mrow><mo>\[</mo><mn>0.311</mn><mo>,</mo><mn>0.143</mn><mo>,</mo><mn>0.100</mn><mo>,</mo><mn>0.043</mn><mo>,</mo><mn>0.031</mn><mo>,</mo><mn>0.014</mn><mo>\]</mo></mrow><annotation>\[0.311, 0.143, 0.100, 0.043, 0.031, 0.014\]</annotation></semantics></math>\[0.311,0.143,0.100,0.043,0.031,0.014\]
+# Define list of N values
+N_values = [10, 50, 100, 500, 1000, 5000]
 
-These results are also visualized in the plot, where you can see that as <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N increases, <math><semantics><mrow><mi>σ</mi></mrow><annotation>\\sigma</annotation></semantics></math>σ decreases. This is consistent with what you might expect given the nature of the standard deviation and the fact that we are dividing by <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N in its calculation. As we use more elements in our computation (larger <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N), the spread (standard deviation) of our results decreases.
+# Define number of rows K
+K = 1000
+
+# Create list to store sigma values
+sigma_values = []
+
+# Repeat experiment for each N
+for N in N_values:
+    # Generate random vector 'a' and matrix 'M'
+    a = np.random.randn(N)
+    M = np.random.randn(K, N)
+
+    # Standardize 'a' and 'M'
+    a = standardize(a)
+    M = standardize(M)
+
+    # Compute dot product 'y' of 'M' with 'a'
+    y = M @ a
+
+    # Compute standard deviation 'sigma' of 'y' divided by N
+    sigma = np.std(y) / N
+
+    # Store sigma
+    sigma_values.append(sigma)
+
+# Plot sigma vs N
+plt.figure(figsize=(10, 6))
+plt.plot(N_values, sigma_values, marker='o')
+plt.xlabel('N')
+plt.ylabel('sigma')
+plt.title('Sigma vs N')
+plt.grid(True)
+plt.show()
+
+# Print values
+N_values, sigma_values
+```
 
 ## RESPONSE 4
 
-Here are the results:
+```python
+import numpy as np
+import matplotlib.pyplot as plt
 
-The values of <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N are: <math><semantics><mrow><mo>\[</mo><mn>10</mn><mo>,</mo><mn>50</mn><mo>,</mo><mn>100</mn><mo>,</mo><mn>500</mn><mo>,</mo><mn>1000</mn><mo>,</mo><mn>5000</mn><mo>\]</mo></mrow><annotation>\[10, 50, 100, 500, 1000, 5000\]</annotation></semantics></math>\[10,50,100,500,1000,5000\]
+# Define function to standardize a vector or matrix
+def standardize(X):
+    return (X - np.mean(X, axis=0)) / np.std(X, axis=0)
 
-The corresponding <math><semantics><mrow><mi>σ</mi></mrow><annotation>\\sigma</annotation></semantics></math>σ values are approximately: <math><semantics><mrow><mo>\[</mo><mn>0.311</mn><mo>,</mo><mn>0.143</mn><mo>,</mo><mn>0.100</mn><mo>,</mo><mn>0.043</mn><mo>,</mo><mn>0.031</mn><mo>,</mo><mn>0.014</mn><mo>\]</mo></mrow><annotation>\[0.311, 0.143, 0.100, 0.043, 0.031, 0.014\]</annotation></semantics></math>\[0.311,0.143,0.100,0.043,0.031,0.014\]
+# Define list of N values
+N_values = [10, 50, 100, 500, 1000, 5000]
 
-These results are also visualized in the plot, where you can see that as <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N increases, <math><semantics><mrow><mi>σ</mi></mrow><annotation>\\sigma</annotation></semantics></math>σ decreases. This is consistent with what you might expect given the nature of the standard deviation and the fact that we are dividing by <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N in its calculation. As we use more elements in our computation (larger <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N), the spread (standard deviation) of our results decreases.
+# Define number of rows K
+K = 1000
+
+# Create list to store sigma values
+sigma_values = []
+
+# Repeat experiment for each N
+for N in N_values:
+    # Generate random vector 'a' and matrix 'M'
+    a = np.random.randn(N)
+    M = np.random.randn(K, N)
+
+    # Standardize 'a' and 'M'
+    a = standardize(a)
+    M = standardize(M)
+
+    # Compute dot product 'y' of 'M' with 'a'
+    y = M @ a
+
+    # Compute standard deviation 'sigma' of 'y' divided by N
+    sigma = np.std(y) / N
+
+    # Store sigma
+    sigma_values.append(sigma)
+
+# Plot sigma vs N
+plt.figure(figsize=(10, 6))
+plt.plot(N_values, sigma_values, marker='o')
+plt.xlabel('N')
+plt.ylabel('sigma')
+plt.title('Sigma vs N')
+plt.grid(True)
+plt.show()
+
+# Print values
+N_values, sigma_values
+```
 
 ## PROMPT 5
 
@@ -88,23 +170,79 @@ and run the code again
 
 ## RESPONSE 6
 
-Here are the new results:
+```python
+# Create list to store new sigma values
+new_sigma_values = []
 
-The values of <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N are still: <math><semantics><mrow><mo>\[</mo><mn>10</mn><mo>,</mo><mn>50</mn><mo>,</mo><mn>100</mn><mo>,</mo><mn>500</mn><mo>,</mo><mn>1000</mn><mo>,</mo><mn>5000</mn><mo>\]</mo></mrow><annotation>\[10, 50, 100, 500, 1000, 5000\]</annotation></semantics></math>\[10,50,100,500,1000,5000\]
+# Repeat experiment for each N
+for N in N_values:
+    # Generate random vector 'a' and matrix 'M'
+    a = np.random.randn(N)
+    M = np.random.randn(K, N)
 
-The corresponding new <math><semantics><mrow><mi>σ</mi></mrow><annotation>\\sigma</annotation></semantics></math>σ values are approximately: <math><semantics><mrow><mo>\[</mo><mn>0.323</mn><mo>,</mo><mn>0.143</mn><mo>,</mo><mn>0.098</mn><mo>,</mo><mn>0.044</mn><mo>,</mo><mn>0.033</mn><mo>,</mo><mn>0.014</mn><mo>\]</mo></mrow><annotation>\[0.323, 0.143, 0.098, 0.044, 0.033, 0.014\]</annotation></semantics></math>\[0.323,0.143,0.098,0.044,0.033,0.014\]
+    # Standardize 'a' and 'M'
+    a = standardize(a)
+    M = standardize(M)
 
-As before, these results are also visualized in the plot. The trend remains the same: as <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N increases, <math><semantics><mrow><mi>σ</mi></mrow><annotation>\\sigma</annotation></semantics></math>σ decreases. The changes in <math><semantics><mrow><mi>σ</mi></mrow><annotation>\\sigma</annotation></semantics></math>σ values are due to the change in the calculation (now we are computing the standard deviation of <math><semantics><mrow><mi>y</mi><mi>/</mi><mi>N</mi></mrow><annotation>y/N</annotation></semantics></math>y/N rather than <math><semantics><mrow><mi>y</mi></mrow><annotation>y</annotation></semantics></math>y divided by <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N).
+    # Compute dot product 'y' of 'M' with 'a'
+    y = M @ a
+
+    # Compute standard deviation 'sigma' of 'y' divided by N
+    sigma = np.std(y / N)
+
+    # Store sigma
+    new_sigma_values.append(sigma)
+
+# Plot sigma vs N
+plt.figure(figsize=(10, 6))
+plt.plot(N_values, new_sigma_values, marker='o')
+plt.xlabel('N')
+plt.ylabel('New sigma')
+plt.title('New Sigma vs N')
+plt.grid(True)
+plt.show()
+
+# Print values
+N_values, new_sigma_values
+```
 
 ## RESPONSE 6
 
-Here are the new results:
+```python
+# Create list to store new sigma values
+new_sigma_values = []
 
-The values of <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N are still: <math><semantics><mrow><mo>\[</mo><mn>10</mn><mo>,</mo><mn>50</mn><mo>,</mo><mn>100</mn><mo>,</mo><mn>500</mn><mo>,</mo><mn>1000</mn><mo>,</mo><mn>5000</mn><mo>\]</mo></mrow><annotation>\[10, 50, 100, 500, 1000, 5000\]</annotation></semantics></math>\[10,50,100,500,1000,5000\]
+# Repeat experiment for each N
+for N in N_values:
+    # Generate random vector 'a' and matrix 'M'
+    a = np.random.randn(N)
+    M = np.random.randn(K, N)
 
-The corresponding new <math><semantics><mrow><mi>σ</mi></mrow><annotation>\\sigma</annotation></semantics></math>σ values are approximately: <math><semantics><mrow><mo>\[</mo><mn>0.323</mn><mo>,</mo><mn>0.143</mn><mo>,</mo><mn>0.098</mn><mo>,</mo><mn>0.044</mn><mo>,</mo><mn>0.033</mn><mo>,</mo><mn>0.014</mn><mo>\]</mo></mrow><annotation>\[0.323, 0.143, 0.098, 0.044, 0.033, 0.014\]</annotation></semantics></math>\[0.323,0.143,0.098,0.044,0.033,0.014\]
+    # Standardize 'a' and 'M'
+    a = standardize(a)
+    M = standardize(M)
 
-As before, these results are also visualized in the plot. The trend remains the same: as <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N increases, <math><semantics><mrow><mi>σ</mi></mrow><annotation>\\sigma</annotation></semantics></math>σ decreases. The changes in <math><semantics><mrow><mi>σ</mi></mrow><annotation>\\sigma</annotation></semantics></math>σ values are due to the change in the calculation (now we are computing the standard deviation of <math><semantics><mrow><mi>y</mi><mi>/</mi><mi>N</mi></mrow><annotation>y/N</annotation></semantics></math>y/N rather than <math><semantics><mrow><mi>y</mi></mrow><annotation>y</annotation></semantics></math>y divided by <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N).
+    # Compute dot product 'y' of 'M' with 'a'
+    y = M @ a
+
+    # Compute standard deviation 'sigma' of 'y' divided by N
+    sigma = np.std(y / N)
+
+    # Store sigma
+    new_sigma_values.append(sigma)
+
+# Plot sigma vs N
+plt.figure(figsize=(10, 6))
+plt.plot(N_values, new_sigma_values, marker='o')
+plt.xlabel('N')
+plt.ylabel('New sigma')
+plt.title('New Sigma vs N')
+plt.grid(True)
+plt.show()
+
+# Print values
+N_values, new_sigma_values
+```
 
 ## PROMPT 7
 
@@ -116,11 +254,29 @@ plot the values N_values, sigma_values using a logarithm scale for both axis.
 
 ## RESPONSE 8
 
-Here is the log-log plot of the new sigma values against <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N. As before, each point corresponds to a specific <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N value and its corresponding new sigma value, but now both axes are presented in a logarithmic scale. This type of plot can help reveal certain types of relationships, particularly power-law relationships, between the variables.
+```python
+# Plot sigma vs N with logarithmic scale
+plt.figure(figsize=(10, 6))
+plt.loglog(N_values, new_sigma_values, marker='o')
+plt.xlabel('N (log scale)')
+plt.ylabel('New sigma (log scale)')
+plt.title('New Sigma vs N (log-log scale)')
+plt.grid(True)
+plt.show()
+```
 
 ## RESPONSE 8
 
-Here is the log-log plot of the new sigma values against <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N. As before, each point corresponds to a specific <math><semantics><mrow><mi>N</mi></mrow><annotation>N</annotation></semantics></math>N value and its corresponding new sigma value, but now both axes are presented in a logarithmic scale. This type of plot can help reveal certain types of relationships, particularly power-law relationships, between the variables.
+```python
+# Plot sigma vs N with logarithmic scale
+plt.figure(figsize=(10, 6))
+plt.loglog(N_values, new_sigma_values, marker='o')
+plt.xlabel('N (log scale)')
+plt.ylabel('New sigma (log scale)')
+plt.title('New Sigma vs N (log-log scale)')
+plt.grid(True)
+plt.show()
+```
 
 ## PROMPT 9
 
