@@ -121,10 +121,8 @@ r = 1 - \frac{\text{d}^2(X,Y)}{2N}
 
 
 
-Here is example code to validate the relation between pearson correlation and euclidean distance numerically:
+Here is example code in python to validate the relation between pearson correlation and euclidean distance numerically:
 ```python
-import matplotlib.pyplot as plt
-
 # Create three random vectors of length N=1000
 x = np.random.rand(1000)
 y = np.random.rand(1000)
