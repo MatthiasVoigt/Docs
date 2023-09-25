@@ -1,5 +1,5 @@
 
-## Person Correlation, Cosine similarity, Covariance, Dot product and Euclidean distance of Standardized Vectors
+## Pearson Correlation, Cosine similarity, Covariance, Dot product and Euclidean distance of Standardized Vectors
 
 This page compares different similarity measures that can be used to compute the similarity of two vectors. We assume that the vectors are standardized meaning, they have zero mean and the standard deviaiton is one. It turns out with standardized vectors the measures are just variations of the dot product. There is no fundamental difference. 
 
